@@ -90,6 +90,9 @@
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
     }
+    .nl-wrap{
+      display: none !important;
+    }
 
     body {
       background: var(--bg-main);
