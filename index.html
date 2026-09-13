@@ -10,10 +10,15 @@
   <link rel="preload" as="font" type="font/otf" crossorigin="" href="Piepie.otf" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-
-    
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Netlify Identity & YAML Parser for Decap CMS -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <!-- 3D Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -151,12 +156,20 @@
       <div class="visual">
         <div class="label l1">PATENT / IP DESIGN</div>
         <div class="visual-content">
-          <img src="tv.png" alt="Technical frame" class="visual-tv" />
-          <div class="drawing"></div>
+          <model-viewer
+            src="sci_fi_gear_animated-optimized.glb"
+            alt="3D CAD Mechanical Assembly"
+            autoplay
+            auto-rotate
+            camera-controls
+            shadow-intensity="1"
+            exposure="1.1"
+            interaction-prompt="none"
+            style="width: 100%; height: 100%; outline: none; background: transparent;">
+          </model-viewer>
         </div>
-        <div class="label l2">FIG. 01 / TECHNICAL VIEW</div>
+        <div class="label l2">FIG. 01 / 3D CAD MODEL</div>
       </div>
-      <img src="tv.png" alt="Technical frame" id="mtv" class="visual-tv" />
     </section>
 
     <!-- 01 ABOUT -->
@@ -217,7 +230,8 @@
         <div class="services">
           <article class="card service-card">
             <div class="service-image">
-              <img src="drafting.png" alt="Patent drafting" loading="lazy" />
+              <img data-cms="drafting_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
+                alt="Patent drafting" loading="lazy" />
             </div>
             <div class="num">01 — DOCUMENTATION</div>
             <h3>Patent Drafting</h3>
@@ -233,7 +247,8 @@
           </article>
           <article class="card service-card">
             <div class="service-image">
-              <img src="drawing.png" alt="2D patent illustrations" loading="lazy" />
+              <img data-cms="drawing_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
+                alt="2D patent illustrations" loading="lazy" />
             </div>
             <div class="num">02 — TECHNICAL DRAWING</div>
             <h3>2D Patent Illustrations</h3>
@@ -249,7 +264,8 @@
           </article>
           <article class="card service-card">
             <div class="service-image">
-              <img src="rembg_webp/frame_000001.webp" alt="3D mechanical visualization" loading="lazy" />
+              <img src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789132642/frame_000001_hphguy.webp"
+                alt="3D mechanical visualization" loading="lazy" />
             </div>
             <div class="num">03 — VISUALIZATION</div>
             <h3>3D Modelling &amp; Rendering</h3>
@@ -288,7 +304,8 @@
               <span>SPECIFICATIONS · CLAIMS</span>
             </div>
             <div class="work-image">
-              <img src="drafting.png" alt="Patent drafting presentation" loading="lazy" />
+              <img data-cms="drafting_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
+                alt="Patent drafting presentation" loading="lazy" />
             </div>
             <div class="work-copy">
               <h3>Patent Drafting</h3>
@@ -305,7 +322,8 @@
               <span>FIGURES · SECTIONS</span>
             </div>
             <div class="work-image">
-              <img src="drawing.png" alt="2D patent illustration sheet" loading="lazy" />
+              <img data-cms="drawing_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
+                alt="2D patent illustration sheet" loading="lazy" />
             </div>
             <div class="work-copy">
               <h3>2D Patent Illustrations</h3>
@@ -322,7 +340,8 @@
               <span>INTERACTIVE EXPLODED VIEW</span>
             </div>
             <div class="assembly-project active" id="assemblyProject">
-              <img id="assemblyProjectFrame" src="rembg_webp/frame_000300.webp"
+              <img id="assemblyProjectFrame" data-cms="exploded_preview"
+                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
                 alt="Interactive exploded mechanical assembly" />
               <div class="assembly-project-hint">
                 <span>INTERACTIVE 3D</span>
@@ -456,10 +475,12 @@
         });
       }
 
-      // Interactive 3D Exploded Viewer
+
+      // ==============================
+      // CLOUDINARY CONFIG
+      // ==============================
+      const CLOUD_NAME = "cxe05iuw";
       const TOTAL_FRAMES = 300;
-      const FRAME_PATH = "rembg_webp/frame_";
-      const PAD = 6;
 
       const viewerElem = document.getElementById("assemblyProject");
       const frameImg = document.getElementById("assemblyProjectFrame");
@@ -468,26 +489,55 @@
 
       const frames = new Array(TOTAL_FRAMES);
 
-      // Preload frame sequence progressively
-      for (let i = 0; i < TOTAL_FRAMES; i++) {
-        const img = new Image();
-        img.src = `${FRAME_PATH}${String(i + 1).padStart(PAD, "0")}.webp`;
-        frames[i] = img;
+      // ==============================
+      // CLOUDINARY URL
+      // ==============================
+      function cloudinaryUrl(publicId) {
+        return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_auto/${publicId}`;
+      }
+      // ==============================
+      // LOAD FRAME LIST
+      // ==============================
+      async function loadFrames() {
+        try {
+          const response = await fetch("./frames.json");
+          if (!response.ok) {
+            throw new Error(`frames.json error: ${response.status}`);
+          }
+          const framePublicIds = await response.json();
+          if (!Array.isArray(framePublicIds)) {
+            throw new Error("frames.json must contain an array.");
+          }
+          console.log(`Found ${framePublicIds.length} Cloudinary frames`);
+          framePublicIds.forEach((publicId, index) => {
+            if (index >= TOTAL_FRAMES) return;
+            const img = new Image();
+            img.decoding = "async";
+            img.onload = () => {
+              frames[index] = img;
+              if (index === TOTAL_FRAMES - 1) {
+                frameImg.src = img.src;
+              }
+            };
+            img.onerror = () => {
+              console.warn(`Frame ${index + 1} failed:`, publicId);
+            };
+            img.src = cloudinaryUrl(publicId);
+          });
+        } catch (error) {
+          console.error("Unable to load Cloudinary frames:", error);
+        }
       }
 
-      let active = true;
-      let touchStartX = 0;
-      let touchStartFrame = 0;
-      let touchMoved = false;
-      let ignoreClick = false;
+      // ==============================
+      // ANIMATION
+      // ==============================
       let currentFrame = TOTAL_FRAMES - 1;
       let targetFrame = TOTAL_FRAMES - 1;
       let raf = null;
-
       function showFrame(index) {
         index = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(index)));
         const img = frames[index];
-
         if (img && img.complete && img.naturalWidth > 0) {
           frameImg.src = img.src;
           currentFrame = index;
@@ -496,66 +546,115 @@
 
       function animate() {
         const diff = targetFrame - currentFrame;
-
         if (Math.abs(diff) < 0.35) {
           showFrame(targetFrame);
           raf = null;
           return;
         }
-
         currentFrame += diff * 0.22;
         showFrame(currentFrame);
         raf = requestAnimationFrame(animate);
       }
 
       function startAnimation() {
-        if (!raf) raf = requestAnimationFrame(animate);
+        if (!raf) {
+          raf = requestAnimationFrame(animate);
+        }
       }
 
-      // Mouse hover interaction
-      viewerElem.addEventListener("mousemove", (event) => {
+      // ==============================
+      // MOUSE CONTROL
+      // ==============================
+      viewerElem.addEventListener("mousemove", event => {
         const rect = viewerElem.getBoundingClientRect();
         let progress = (event.clientX - rect.left) / rect.width;
         progress = Math.max(0, Math.min(1, progress));
-
         targetFrame = progress * (TOTAL_FRAMES - 1);
         startAnimation();
       });
 
-      // Touch swipe scrubbing interaction
-      viewerElem.addEventListener(
-        "touchstart",
-        (event) => {
-          if (!event.touches.length) return;
-          touchStartX = event.touches[0].clientX;
-          touchStartFrame = currentFrame;
-          touchMoved = false;
-          ignoreClick = true;
-        },
-        { passive: true }
-      );
+      // ==============================
+      // DECAP CMS & NETLIFY IDENTITY
+      // ==============================
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
 
-      viewerElem.addEventListener(
-        "touchmove",
-        (event) => {
-          if (!event.touches.length) return;
+      async function loadSiteContent() {
+        const fallbackData = {
+          drafting_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png",
+          drawing_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png",
+          exploded_preview: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
+        };
 
-          const rect = viewerElem.getBoundingClientRect();
-          const delta = event.touches[0].clientX - touchStartX;
-          if (Math.abs(delta) > 4) touchMoved = true;
+        function parseYAML(text) {
+          if (window.jsyaml && typeof window.jsyaml.load === "function") {
+            try {
+              return window.jsyaml.load(text);
+            } catch (e) {
+              console.warn("js-yaml parse error, falling back to simple parser:", e);
+            }
+          }
+          const result = {};
+          const lines = text.split(/\r?\n/);
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith("#")) continue;
+            const colonIdx = trimmed.indexOf(":");
+            if (colonIdx !== -1) {
+              const key = trimmed.slice(0, colonIdx).trim();
+              let val = trimmed.slice(colonIdx + 1).trim();
+              if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+                val = val.slice(1, -1);
+              }
+              result[key] = val;
+            }
+          }
+          return result;
+        }
 
-          const frameDelta = (delta / Math.max(rect.width, 1)) * (TOTAL_FRAMES - 1);
-          targetFrame = Math.max(
-            0,
-            Math.min(TOTAL_FRAMES - 1, touchStartFrame + frameDelta)
-          );
-          startAnimation();
-        },
-        { passive: true }
-      );
+        function applyData(data) {
+          if (!data) return;
+          if (data.drafting_image) {
+            document.querySelectorAll('[data-cms="drafting_image"]').forEach(img => {
+              img.src = data.drafting_image;
+            });
+          }
+          if (data.drawing_image) {
+            document.querySelectorAll('[data-cms="drawing_image"]').forEach(img => {
+              img.src = data.drawing_image;
+            });
+          }
+          if (data.exploded_preview) {
+            const previewImg = document.getElementById("assemblyProjectFrame");
+            if (previewImg && (!frames || !frames[TOTAL_FRAMES - 1])) {
+              previewImg.src = data.exploded_preview;
+            }
+          }
+        }
+
+        try {
+          const res = await fetch("./content/site.yml");
+          if (!res.ok) throw new Error("Status " + res.status);
+          const ymlText = await res.text();
+          const parsed = parseYAML(ymlText);
+          applyData(parsed);
+        } catch (err) {
+          console.warn("Could not load site.yml, using fallback values:", err);
+          applyData(fallbackData);
+        }
+      }
+
+      loadSiteContent();
+      loadFrames();
     })();
   </script>
-  <!-- Code injected by live-server -->
 
 </body>
 
