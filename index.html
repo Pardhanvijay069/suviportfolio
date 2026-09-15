@@ -14,9 +14,6 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Netlify Identity & YAML Parser for Decap CMS -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <!-- 3D Model Viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
@@ -156,15 +153,8 @@
       <div class="visual">
         <div class="label l1">PATENT / IP DESIGN</div>
         <div class="visual-content">
-          <model-viewer
-            src="sci_fi_gear_animated-optimized.glb"
-            alt="3D CAD Mechanical Assembly"
-            autoplay
-            auto-rotate
-            camera-controls
-            shadow-intensity="1"
-            exposure="1.1"
-            interaction-prompt="none"
+          <model-viewer src="sci_fi_gear_animated-optimized.glb" alt="3D CAD Mechanical Assembly" autoplay auto-rotate
+            camera-controls shadow-intensity="1" exposure="1.1" interaction-prompt="none"
             style="width: 100%; height: 100%; outline: none; background: transparent;">
           </model-viewer>
         </div>
@@ -230,7 +220,8 @@
         <div class="services">
           <article class="card service-card">
             <div class="service-image">
-              <img data-cms="drafting_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
+              <img data-cms="drafting_image"
+                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
                 alt="Patent drafting" loading="lazy" />
             </div>
             <div class="num">01 — DOCUMENTATION</div>
@@ -247,7 +238,8 @@
           </article>
           <article class="card service-card">
             <div class="service-image">
-              <img data-cms="drawing_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
+              <img data-cms="drawing_image"
+                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
                 alt="2D patent illustrations" loading="lazy" />
             </div>
             <div class="num">02 — TECHNICAL DRAWING</div>
@@ -298,13 +290,14 @@
         </div>
 
         <div class="work-grid">
-          <article class="work-panel work-drafting">
+          <article class="work-panel work-drafting" style="display: none;">
             <div class="work-meta">
               <span>01 / DRAFTING</span>
               <span>SPECIFICATIONS · CLAIMS</span>
             </div>
             <div class="work-image">
-              <img data-cms="drafting_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
+              <img data-cms="drafting_image"
+                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
                 alt="Patent drafting presentation" loading="lazy" />
             </div>
             <div class="work-copy">
@@ -316,13 +309,14 @@
             </div>
           </article>
 
-          <article class="work-panel work-drawing">
+          <article class="work-panel work-drawing" style="display: none;">
             <div class="work-meta">
               <span>02 / 2D ILLUSTRATION</span>
               <span>FIGURES · SECTIONS</span>
             </div>
             <div class="work-image">
-              <img data-cms="drawing_image" src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
+              <img data-cms="drawing_image"
+                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
                 alt="2D patent illustration sheet" loading="lazy" />
             </div>
             <div class="work-copy">
@@ -336,7 +330,7 @@
 
           <article class="work-panel work-assembly">
             <div class="work-meta">
-              <span>03 / 3D VISUALIZATION</span>
+              <span>3D VISUALIZATION</span>
               <span>INTERACTIVE EXPLODED VIEW</span>
             </div>
             <div class="assembly-project active" id="assemblyProject">
@@ -411,10 +405,8 @@
         <div>
           <div class="eyebrow">05 / Contact</div>
           <h2>Let’s work<br />together.</h2>
-        </div>
-        <div>
-          <p>
-            Have an invention? Get in touch to discuss patent drafting,
+          <p style="margin-top: 14px;">
+            Have an invention? Submit your project details to discuss patent drafting,
             technical illustrations, CAD modeling, rendering, or other utility
             patent support.
           </p>
@@ -432,14 +424,83 @@
               <span>US • IN • EP</span>
             </div>
           </div>
-          <div class="buttons">
-            <a class="btn"
-              href="mailto:freelance.suryavanshi@gmail.com?subject=Patent%20%26%20IP%20Support%20Inquiry">Start a
-              Conversation ↗</a>
-          </div>
           <p style="margin-top: 20px; color: var(--text-muted); font-family: var(--font-mono); font-size: 11px;">
             Your ideas are safe with us. Confidentiality Assured.
           </p>
+        </div>
+
+        <div>
+          <div class="inquiry-card">
+            <div class="inquiry-head">
+              <span class="inquiry-badge">INQUIRY FORM</span>
+              <h3 class="inquiry-title">Start a Conversation</h3>
+            </div>
+
+            <form id="inquiryForm" class="inquiry-form" novalidate>
+              <div class="inquiry-row">
+                <div class="inquiry-group" id="group_fullName">
+                  <label for="fullName">Full Name <span class="req">*</span></label>
+                  <input type="text" id="fullName" name="fullName" class="inquiry-input" placeholder="e.g. John Doe"
+                    required autocomplete="name" />
+                  <span class="inquiry-field-error" id="err_fullName">Full name is required</span>
+                </div>
+                <div class="inquiry-group" id="group_email">
+                  <label for="email">Email <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" class="inquiry-input" placeholder="john@example.com"
+                    required autocomplete="email" />
+                  <span class="inquiry-field-error" id="err_email">Valid email is required</span>
+                </div>
+              </div>
+
+              <div class="inquiry-row">
+                <div class="inquiry-group" id="group_company">
+                  <label for="company">Company / Organization</label>
+                  <input type="text" id="company" name="company" class="inquiry-input" placeholder="Optional"
+                    autocomplete="organization" />
+                </div>
+                <div class="inquiry-group" id="group_phone">
+                  <label for="phone">Phone Number <span class="req">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="inquiry-input" placeholder="+1 234 567 8900" required
+                    autocomplete="tel" />
+                  <span class="inquiry-field-error" id="err_phone">Phone number is required</span>
+                </div>
+              </div>
+
+              <div class="inquiry-group" id="group_service">
+                <label for="service">What service are you interested in? <span class="req">*</span></label>
+                <select id="service" name="service" class="inquiry-select" required>
+                  <option value="" disabled selected>Select a service...</option>
+                  <option value="Patent Drafting">Patent Drafting</option>
+                  <option value="2D Patent Illustrations">2D Patent Illustrations</option>
+                  <option value="3D Modelling">3D Modelling</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="inquiry-field-error" id="err_service">Please select a service</span>
+              </div>
+
+              <div class="inquiry-group" id="group_otherService" style="display: none;">
+                <label for="otherService">Other Service <span class="req">*</span></label>
+                <input type="text" id="otherService" name="otherService" class="inquiry-input"
+                  placeholder="Please specify service details" />
+                <span class="inquiry-field-error" id="err_otherService">Please specify the other service</span>
+              </div>
+
+              <div class="inquiry-group" id="group_invention">
+                <label for="invention">Brief information about your Invention <span class="req">*</span></label>
+                <textarea id="invention" name="invention" class="inquiry-textarea" rows="3"
+                  placeholder="Brief technical summary, objectives, or intended protection..." required></textarea>
+                <span class="inquiry-field-error" id="err_invention">Invention details are required</span>
+              </div>
+
+              <div id="inquirySuccess" class="inquiry-alert inquiry-alert-success"></div>
+              <div id="inquiryError" class="inquiry-alert inquiry-alert-error"></div>
+
+              <button type="submit" id="inquirySubmitBtn" class="btn inquiry-submit-btn">
+                <span id="btnText">Submit Inquiry ↗</span>
+                <span id="btnLoader" style="display: none;">Submitting...</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -574,50 +635,14 @@
       });
 
       // ==============================
-      // DECAP CMS & NETLIFY IDENTITY
+      // DYNAMIC PORTFOLIO IMAGES
       // ==============================
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-
       async function loadSiteContent() {
         const fallbackData = {
           drafting_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png",
           drawing_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png",
           exploded_preview: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
         };
-
-        function parseYAML(text) {
-          if (window.jsyaml && typeof window.jsyaml.load === "function") {
-            try {
-              return window.jsyaml.load(text);
-            } catch (e) {
-              console.warn("js-yaml parse error, falling back to simple parser:", e);
-            }
-          }
-          const result = {};
-          const lines = text.split(/\r?\n/);
-          for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed || trimmed.startsWith("#")) continue;
-            const colonIdx = trimmed.indexOf(":");
-            if (colonIdx !== -1) {
-              const key = trimmed.slice(0, colonIdx).trim();
-              let val = trimmed.slice(colonIdx + 1).trim();
-              if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-                val = val.slice(1, -1);
-              }
-              result[key] = val;
-            }
-          }
-          return result;
-        }
 
         function applyData(data) {
           if (!data) return;
@@ -640,15 +665,222 @@
         }
 
         try {
-          const res = await fetch("./content/site.yml");
+          const res = await fetch("/api/images");
           if (!res.ok) throw new Error("Status " + res.status);
-          const ymlText = await res.text();
-          const parsed = parseYAML(ymlText);
-          applyData(parsed);
+          const data = await res.json();
+          applyData(data);
         } catch (err) {
-          console.warn("Could not load site.yml, using fallback values:", err);
+          console.warn("Could not load /api/images, using fallback values:", err);
           applyData(fallbackData);
         }
+      }
+
+      // ==============================
+      // GOOGLE APPS SCRIPT INQUIRY FORM
+      // ==============================
+      const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWsyEEmqrTlQv8X2mLeREKUbuOqcGqtrYg-14IX9lgjCJJs9CVUae5bssSIQkNob31/exec";
+
+      const inquiryForm = document.getElementById("inquiryForm");
+      if (inquiryForm) {
+        const fullNameInput = document.getElementById("fullName");
+        const emailInput = document.getElementById("email");
+        const companyInput = document.getElementById("company");
+        const phoneInput = document.getElementById("phone");
+        const serviceSelect = document.getElementById("service");
+        const otherServiceGroup = document.getElementById("group_otherService");
+        const otherServiceInput = document.getElementById("otherService");
+        const inventionInput = document.getElementById("invention");
+
+        const submitBtn = document.getElementById("inquirySubmitBtn");
+        const btnText = document.getElementById("btnText");
+        const btnLoader = document.getElementById("btnLoader");
+        const successAlert = document.getElementById("inquirySuccess");
+        const errorAlert = document.getElementById("inquiryError");
+
+        // Toggle "Other Service" field
+        serviceSelect.addEventListener("change", () => {
+          if (serviceSelect.value === "Other") {
+            otherServiceGroup.style.display = "flex";
+            otherServiceInput.required = true;
+          } else {
+            otherServiceGroup.style.display = "none";
+            otherServiceInput.required = false;
+            otherServiceInput.value = "";
+            document.getElementById("group_otherService").classList.remove("has-error");
+          }
+        });
+
+        // Clear error styling on input
+        [fullNameInput, emailInput, phoneInput, serviceSelect, otherServiceInput, inventionInput].forEach(elem => {
+          if (!elem) return;
+          elem.addEventListener("input", () => {
+            const group = elem.closest(".inquiry-group");
+            if (group) group.classList.remove("has-error");
+            if (errorAlert) errorAlert.style.display = "none";
+          });
+        });
+
+        function validateEmail(val) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+        }
+
+        function setFieldError(fieldId, hasError) {
+          const group = document.getElementById(`group_${fieldId}`);
+          if (group) {
+            if (hasError) {
+              group.classList.add("has-error");
+            } else {
+              group.classList.remove("has-error");
+            }
+          }
+        }
+
+        inquiryForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (successAlert) successAlert.style.display = "none";
+          if (errorAlert) errorAlert.style.display = "none";
+
+          // Client-side Validation
+          let isValid = true;
+          let firstInvalidElem = null;
+
+          const fullName = fullNameInput.value.trim();
+          if (!fullName) {
+            setFieldError("fullName", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = fullNameInput;
+          } else {
+            setFieldError("fullName", false);
+          }
+
+          const email = emailInput.value.trim();
+          if (!email || !validateEmail(email)) {
+            setFieldError("email", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = emailInput;
+          } else {
+            setFieldError("email", false);
+          }
+
+          // Flexible phone validation (allows any style: +91, with spaces, dashes, brackets, leading quote, etc.)
+          const rawPhone = phoneInput.value.trim();
+          const digitsOnly = rawPhone.replace(/\D/g, "");
+          if (!rawPhone || digitsOnly.length < 7) {
+            setFieldError("phone", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = phoneInput;
+          } else {
+            setFieldError("phone", false);
+          }
+
+          const service = serviceSelect.value;
+          if (!service) {
+            setFieldError("service", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = serviceSelect;
+          } else {
+            setFieldError("service", false);
+          }
+
+          const otherService = otherServiceInput.value.trim();
+          if (service === "Other" && !otherService) {
+            setFieldError("otherService", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = otherServiceInput;
+          } else {
+            setFieldError("otherService", false);
+          }
+
+          const invention = inventionInput.value.trim();
+          if (!invention) {
+            setFieldError("invention", true);
+            isValid = false;
+            if (!firstInvalidElem) firstInvalidElem = inventionInput;
+          } else {
+            setFieldError("invention", false);
+          }
+
+          if (!isValid) {
+            if (firstInvalidElem) firstInvalidElem.focus();
+            return;
+          }
+
+          // Sanitize phone number for Google Sheets:
+          // 1. Strip accidental surrounding quotes if user typed them
+          let formattedPhone = rawPhone.replace(/^['"\s]+|['"\s]+$/g, "");
+          // 2. Always prepend a single apostrophe (') so Google Sheets stores ANY phone number format strictly as Text.
+          // This permanently eliminates:
+          // - Formula parse error (#ERROR!) when starting with "+" and containing spaces (+91 9053895287)
+          // - Accidental math subtraction when containing dashes (+91-9053895287 => -9053895196)
+          // - Stripping of leading zeroes (09053895287 => 9053895287)
+          formattedPhone = "'" + formattedPhone;
+
+          // Construct exact JSON payload for Google Apps Script
+          const formData = {
+            fullName: fullName,
+            email: email,
+            company: companyInput.value.trim(),
+            phone: formattedPhone,
+            service: service,
+            otherService: otherService,
+            invention: invention
+          };
+
+          // Loading state & duplicate prevention
+          submitBtn.disabled = true;
+          btnText.style.display = "none";
+          btnLoader.style.display = "inline";
+
+          try {
+            const response = await fetch(APPS_SCRIPT_URL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+              },
+              body: JSON.stringify(formData)
+            });
+
+            // Safely read response text first to avoid stream-already-read errors
+            const text = await response.text();
+            let result = null;
+            try {
+              result = JSON.parse(text);
+            } catch (jsonErr) {
+              console.warn("Raw response from Apps Script:", text);
+            }
+
+            if (result && result.success) {
+              // Successful submission
+              successAlert.textContent = result.message || "Your inquiry has been submitted successfully.";
+              successAlert.style.display = "block";
+              inquiryForm.reset();
+              otherServiceGroup.style.display = "none";
+            } else if (result && result.message) {
+              // Apps Script returned failure with message
+              errorAlert.textContent = result.message;
+              errorAlert.style.display = "block";
+            } else if (text && text.includes("success")) {
+              // Text contains success
+              successAlert.textContent = "Your inquiry has been submitted successfully.";
+              successAlert.style.display = "block";
+              inquiryForm.reset();
+              otherServiceGroup.style.display = "none";
+            } else {
+              errorAlert.textContent = "Submission could not be completed. Please try again.";
+              errorAlert.style.display = "block";
+            }
+          } catch (networkError) {
+            console.error("Inquiry submission error:", networkError);
+            errorAlert.textContent = "Unable to submit your inquiry. Please check your connection and try again.";
+            errorAlert.style.display = "block";
+          } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            btnText.style.display = "inline";
+            btnLoader.style.display = "none";
+          }
+        });
       }
 
       loadSiteContent();
