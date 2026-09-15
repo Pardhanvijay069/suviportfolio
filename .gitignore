@@ -2,3 +2,7 @@ node_modules
 .env
 .env.local
 .vercel
+Piepie/
+Piepie.zip
+*.pyc
+__pycache__/
