@@ -1,12 +1,12 @@
 const cloudinary = require('cloudinary').v2;
 const crypto = require('crypto');
 
-const ALLOWED_KEYS = ['drafting_image', 'drawing_image', 'exploded_preview'];
+const ALLOWED_KEYS = ['drafting_image', 'drawing_image', 'cad_image'];
 
 const DEFAULT_IMAGES = {
   drafting_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png",
   drawing_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png",
-  exploded_preview: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
+  cad_image: "https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
 };
 
 module.exports = async (req, res) => {
