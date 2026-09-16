@@ -132,8 +132,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
     }
 
     .header-actions {
@@ -422,7 +431,8 @@
       margin-bottom: 14px;
     }
 
-    .upload-zone:hover, .upload-zone.dragover {
+    .upload-zone:hover,
+    .upload-zone.dragover {
       border-color: var(--accent-cyan);
       background: var(--accent-cyan-dim);
     }
@@ -551,6 +561,7 @@
       .slots-grid {
         grid-template-columns: 1fr;
       }
+
       .system-info {
         flex-direction: column;
         align-items: flex-start;
@@ -589,12 +600,7 @@
       <form id="authForm">
         <div class="form-group">
           <label class="form-label" for="adminPassword">Admin Password</label>
-          <input
-            type="password"
-            id="adminPassword"
-            class="form-input"
-            placeholder="••••••••••••"
-            required
+          <input type="password" id="adminPassword" class="form-input" placeholder="••••••••••••" required
             autocomplete="current-password" />
         </div>
         <button type="submit" id="unlockBtn" class="btn-primary">Unlock Dashboard</button>
@@ -608,7 +614,8 @@
         <h2 class="dash-title">Editable Portfolio Images</h2>
         <p class="dash-subtitle">
           Select a new image from your computer and click <strong>Upload &amp; Replace</strong>.
-          The file is securely uploaded directly to your Cloudinary storage folder and published instantly to your live portfolio.
+          The file is securely uploaded directly to your Cloudinary storage folder and published instantly to your live
+          portfolio.
         </p>
       </div>
 
@@ -626,27 +633,23 @@
           </div>
 
           <div class="preview-box">
-            <img
-              id="preview_drafting_image"
-              class="preview-img"
+            <img id="preview_drafting_image" class="preview-img"
               src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
               alt="Patent Drafting Preview" />
             <div class="preview-overlay">Live Preview</div>
           </div>
 
           <label class="upload-zone" id="zone_drafting_image" for="file_drafting_image">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75" style="margin: 0 auto;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75"
+              style="margin: 0 auto;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
             </svg>
             <div class="upload-zone-text">Click or drag new image here</div>
             <div class="upload-zone-hint">PNG, WebP, JPG up to 4.5MB</div>
           </label>
-          <input
-            type="file"
-            id="file_drafting_image"
-            class="file-input-hidden"
+          <input type="file" id="file_drafting_image" class="file-input-hidden"
             accept="image/png, image/webp, image/jpeg, image/gif" />
 
           <div class="selected-file-info" id="info_drafting_image"></div>
@@ -672,27 +675,23 @@
           </div>
 
           <div class="preview-box">
-            <img
-              id="preview_drawing_image"
-              class="preview-img"
+            <img id="preview_drawing_image" class="preview-img"
               src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
               alt="2D Patent Illustrations Preview" />
             <div class="preview-overlay">Live Preview</div>
           </div>
 
           <label class="upload-zone" id="zone_drawing_image" for="file_drawing_image">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75" style="margin: 0 auto;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75"
+              style="margin: 0 auto;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
             </svg>
             <div class="upload-zone-text">Click or drag new image here</div>
             <div class="upload-zone-hint">PNG, WebP, JPG up to 4.5MB</div>
           </label>
-          <input
-            type="file"
-            id="file_drawing_image"
-            class="file-input-hidden"
+          <input type="file" id="file_drawing_image" class="file-input-hidden"
             accept="image/png, image/webp, image/jpeg, image/gif" />
 
           <div class="selected-file-info" id="info_drawing_image"></div>
@@ -707,50 +706,46 @@
           <div class="status-msg" id="status_drawing_image"></div>
         </article>
 
-        <!-- SLOT 3: Exploded View Poster -->
-        <article class="slot-card" id="card_exploded_preview">
+        <!-- SLOT 3: 3D CAD Preview -->
+        <article class="slot-card" id="card_cad_image">
           <div class="slot-header">
             <div>
               <div class="slot-meta">Slot 03 · 3D Assembly</div>
-              <h3 class="slot-title">3D Exploded Preview</h3>
+              <h3 class="slot-title">3D CAD Preview</h3>
               <div class="slot-location">Selected Work 03 Fallback / Poster</div>
             </div>
           </div>
 
           <div class="preview-box">
-            <img
-              id="preview_exploded_preview"
-              class="preview-img"
+            <img id="preview_cad_image" class="preview-img"
               src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789132796/frame_000300_wqju8i.webp"
-              alt="3D Exploded Preview" />
+              alt="3D CAD Preview" />
             <div class="preview-overlay">Live Preview</div>
           </div>
 
-          <label class="upload-zone" id="zone_exploded_preview" for="file_exploded_preview">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75" style="margin: 0 auto;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
+          <label class="upload-zone" id="zone_cad_image" for="file_cad_image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-mono)" stroke-width="1.75"
+              style="margin: 0 auto;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
             </svg>
             <div class="upload-zone-text">Click or drag new image here</div>
             <div class="upload-zone-hint">PNG, WebP, JPG up to 4.5MB</div>
           </label>
-          <input
-            type="file"
-            id="file_exploded_preview"
-            class="file-input-hidden"
+          <input type="file" id="file_cad_image" class="file-input-hidden"
             accept="image/png, image/webp, image/jpeg, image/gif" />
 
-          <div class="selected-file-info" id="info_exploded_preview"></div>
+          <div class="selected-file-info" id="info_cad_image"></div>
 
-          <button class="btn-upload" id="btn_exploded_preview" disabled>
+          <button class="btn-upload" id="btn_cad_image" disabled>
             Upload &amp; Replace
           </button>
 
-          <div class="progress-bar-container" id="prog_exploded_preview">
-            <div class="progress-bar" id="bar_exploded_preview"></div>
+          <div class="progress-bar-container" id="prog_cad_image">
+            <div class="progress-bar" id="bar_cad_image"></div>
           </div>
-          <div class="status-msg" id="status_exploded_preview"></div>
+          <div class="status-msg" id="status_cad_image"></div>
         </article>
 
       </div>
@@ -758,7 +753,8 @@
       <!-- System Architecture & Security Info -->
       <div class="system-info">
         <div class="system-info-text">
-          <strong>Architecture:</strong> Cloudinary Cloud Storage (<code>suvi_portfolio/admin/</code>) + Vercel Serverless Functions.
+          <strong>Architecture:</strong> Cloudinary Cloud Storage (<code>suvi_portfolio/admin/</code>) + Vercel
+          Serverless Functions.
           <br />No database is used. The 300-frame interactive assembly animation is isolated and untouched.
         </div>
         <div class="system-info-text" style="text-align: right;">
@@ -773,7 +769,7 @@
   <script>
     (() => {
       const STORAGE_KEY = "sk_admin_pass";
-      const SLOTS = ['drafting_image', 'drawing_image', 'exploded_preview'];
+      const SLOTS = ['drafting_image', 'drawing_image', 'cad_image'];
       const fileDataStore = {};
 
       const authView = document.getElementById("authView");
