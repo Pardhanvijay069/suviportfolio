@@ -550,6 +550,66 @@
     <span>© 2026</span>
   </footer>
 
+<script>
+    (() => {
+      const domainData = {
+        mechanical: {
+          index:"01 / 05", kicker:"MACHINES & MOTION", title:"Mechanical",
+          description:"Mechanical systems, assemblies, mechanisms, components and physical interactions translated into clear patent-ready technical language and visual geometry.",
+          tags:["ASSEMBLIES","MECHANISMS","CAD"]
+        },
+        electronic: {
+          index:"02 / 05", kicker:"CIRCUITS & SYSTEMS", title:"Electronic",
+          description:"Electronic systems, circuit relationships, sensing architecture and component interactions presented as structured technical concepts for IP documentation.",
+          tags:["CIRCUITS","SENSORS","SYSTEMS"]
+        },
+        robotic: {
+          index:"03 / 05", kicker:"INTELLIGENT MOTION", title:"Robotic",
+          description:"Robotic mechanisms and intelligent motion systems combining mechanical structures, actuation, sensing and controlled movement.",
+          tags:["ACTUATION","MOTION","ROBOTICS"]
+        },
+        automation: {
+          index:"04 / 05", kicker:"PROCESS & CONTROL", title:"Automation",
+          description:"Automated processes, control logic and system interactions mapped into understandable technical structures and invention-focused documentation.",
+          tags:["CONTROL","PROCESS","LOGIC"]
+        },
+        interdisciplinary: {
+          index:"05 / 05", kicker:"BEYOND BOUNDARIES", title:"Interdisciplinary",
+          description:"Complex inventions that cross technical disciplines, connecting mechanical, electronic, software and automated elements into one coherent invention.",
+          tags:["HYBRID","INTEGRATION","INNOVATION"]
+        }
+      };
+
+      const nodes=document.querySelectorAll(".domain-node");
+      const indexEl=document.getElementById("domainIndex");
+      const kickerEl=document.getElementById("domainKicker");
+      const titleEl=document.getElementById("domainTitle");
+      const descEl=document.getElementById("domainDescription");
+      const tagsEl=document.getElementById("domainTags");
+
+      function setDomain(key){
+        const data=domainData[key]; if(!data)return;
+        nodes.forEach(node=>{
+          const active=node.dataset.domain===key;
+          node.classList.toggle("active",active);
+          node.setAttribute("aria-pressed",active?"true":"false");
+        });
+        indexEl.textContent=data.index;
+        kickerEl.textContent=data.kicker;
+        titleEl.textContent=data.title;
+        descEl.textContent=data.description;
+        tagsEl.innerHTML=data.tags.map(tag=>`<span>${tag}</span>`).join("");
+      }
+
+      nodes.forEach(node=>{
+        node.setAttribute("aria-pressed",node.classList.contains("active")?"true":"false");
+        node.addEventListener("click",()=>setDomain(node.dataset.domain));
+      });
+
+      setDomain("mechanical");
+    })();
+  </script>
+  
   <script>
     (() => {
       // Mobile Menu Toggle
