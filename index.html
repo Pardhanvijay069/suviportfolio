@@ -13,7 +13,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css"/>
+  <link rel="style" href="/domains.css" />
   <!-- 3D Model Viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
@@ -289,46 +290,71 @@
             </p>
           </div>
         </div>
+        <div class="domain-console">
+          <div class="domain-grid-bg" aria-hidden="true"></div>
 
-        <div class="work-grid">
-          <article class="work-panel work-drafting" style="display: none;">
-            <div class="work-meta">
-              <span>01 / DRAFTING</span>
-              <span>SPECIFICATIONS · CLAIMS</span>
-            </div>
-            <div class="work-image">
-              <img data-cms="drafting_image"
-                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drafting_msbn02.png"
-                alt="Patent drafting presentation" loading="lazy" />
-            </div>
-            <div class="work-copy">
-              <h3>Patent Drafting</h3>
-              <p>
-                Clear, structured specifications and claims developed around
-                the technical concept and intended protection.
-              </p>
-            </div>
-          </article>
+          <div class="domain-side-note domain-side-left">
+            <span class="domain-line"></span>
+            <span>ENGINEERING<br>IDEAS INTO IMPACT</span>
+          </div>
 
-          <article class="work-panel work-drawing" style="display: none;">
-            <div class="work-meta">
-              <span>02 / 2D ILLUSTRATION</span>
-              <span>FIGURES · SECTIONS</span>
-            </div>
-            <div class="work-image">
-              <img data-cms="drawing_image"
-                src="https://res.cloudinary.com/cxe05iuw/image/upload/v1789133549/drawing_yrygua.png"
-                alt="2D patent illustration sheet" loading="lazy" />
-            </div>
-            <div class="work-copy">
-              <h3>2D Patent Illustrations</h3>
-              <p>
-                Accurate line drawings, sectional views, and figure
-                presentation designed to communicate the invention precisely.
-              </p>
-            </div>
-          </article>
+          <div class="domain-side-note domain-side-right">
+            <span>INVENT</span><span>DESIGN</span><span>ITERATE</span><span>DEPLOY</span>
+          </div>
 
+          <div class="domain-orbit" aria-label="Technical domain selector">
+            <div class="orbit-ring orbit-ring-outer"></div>
+            <div class="orbit-ring orbit-ring-inner"></div>
+
+            <button class="domain-node node-mechanical active" data-domain="mechanical" type="button" aria-pressed="true">
+              <span class="node-icon">⚙</span>
+              <strong>MECHANICAL</strong><small>Machines &amp; Motion</small>
+            </button>
+
+            <button class="domain-node node-electronic" data-domain="electronic" type="button" aria-pressed="false">
+              <span class="node-icon">▦</span>
+              <strong>ELECTRONIC</strong><small>Circuits &amp; Systems</small>
+            </button>
+
+            <button class="domain-node node-robotic" data-domain="robotic" type="button" aria-pressed="false">
+              <span class="node-icon">⌘</span>
+              <strong>ROBOTIC</strong><small>Intelligent Motion</small>
+            </button>
+
+            <button class="domain-node node-automation" data-domain="automation" type="button" aria-pressed="false">
+              <span class="node-icon">⌬</span>
+              <strong>AUTOMATION</strong><small>Process &amp; Control</small>
+            </button>
+
+            <button class="domain-node node-interdisciplinary" data-domain="interdisciplinary" type="button" aria-pressed="false">
+              <span class="node-icon">◉</span>
+              <strong>INTERDISCIPLINARY</strong><small>Beyond Boundaries</small>
+            </button>
+
+            <div class="domain-core">
+              <div class="core-crosshair"></div>
+              <div class="core-label">TECHNICAL<br><span>CORE</span></div>
+              <model-viewer src="sci_fi_gear_animated-optimized.glb" alt="Interactive 3D mechanical assembly" camera-controls="" auto-rotate="" shadow-intensity="1" exposure="1.05" interaction-prompt="none" ar-status="not-presenting">
+              </model-viewer>
+              <div class="core-scan"></div>
+            </div>
+          </div>
+
+          <aside class="domain-info-card">
+            <div class="domain-card-top">
+              <span id="domainIndex">01 / 05</span>
+              <span class="domain-live"><i></i> DOMAIN ACTIVE</span>
+            </div>
+            <div class="domain-card-rule"></div>
+            <div class="domain-card-kicker" id="domainKicker">MACHINES &amp; MOTION</div>
+            <h3 id="domainTitle">Mechanical</h3>
+            <p id="domainDescription">Mechanical systems, assemblies, mechanisms, components and physical interactions translated into clear patent-ready technical language and visual geometry.</p>
+            <div class="domain-tags" id="domainTags"><span>ASSEMBLIES</span><span>MECHANISMS</span><span>CAD</span></div>
+            <button class="domain-explore" type="button">
+              EXPLORE DOMAIN <span>↗</span>
+            </button>
+          </aside>
+        </div>
           <article class="work-panel work-assembly">
             <div class="work-meta">
               <span>3D VISUALIZATION</span>
