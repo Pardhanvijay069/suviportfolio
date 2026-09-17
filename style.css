@@ -4,7 +4,7 @@
 @font-face {
     font-family: "Piepie";
     src: url("Piepie.otf") format("opentype");
-    font-weight: 400;
+    /* font-weight: 400; */
     font-style: normal;
     font-display: swap;
 }
@@ -24,7 +24,7 @@
     --fs-body-lead: clamp(15px, 0.9vw + 10px, 17px);
     --fs-body: clamp(13.5px, 0.8vw + 9.5px, 15px);
     --fs-body-sm: clamp(12.5px, 0.65vw + 9.5px, 13.5px);
-    --fs-meta: clamp(10.5px, 0.6vw + 8px, 11.5px);
+    --fs-meta: clamp(10.5px, 0.6vw + 8px, 14.5px);
     --fs-tag: clamp(10.5px, 0.55vw + 8px, 11.5px);
     --fs-btn: clamp(11.5px, 0.6vw + 8.5px, 12.5px);
     --fs-logo: clamp(12px, 0.7vw + 9px, 13.5px);
@@ -563,8 +563,8 @@ header {
 .eyebrow::before {
     content: "";
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     background: var(--text-mono);
     border-radius: 1px;
 }
@@ -572,7 +572,7 @@ header {
 .hero h1 {
     font-family: var(--font-display);
     font-size: var(--fs-hero-title);
-    font-weight: 400;
+    /* font-weight: 400; */
     line-height: 1.05;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -797,7 +797,7 @@ section {
 .head h2 {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
-    font-weight: 400;
+    /* font-weight: 400; */
     line-height: 1.12;
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -827,7 +827,7 @@ section {
 .big {
     font-family: var(--font-display);
     font-size: var(--fs-big);
-    font-weight: 400;
+    /* font-weight: 400; */
     text-transform: uppercase;
     line-height: 1.1;
     letter-spacing: 0.02em;
@@ -1252,7 +1252,7 @@ section {
 .contact h2 {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
-    font-weight: 400;
+    /* font-weight: 400; */
     line-height: 1.08;
     letter-spacing: 0.02em;
     text-transform: uppercase;
