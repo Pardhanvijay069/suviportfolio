@@ -22,8 +22,8 @@
     --fs-h3: clamp(17px, 1.3vw + 10px, 22px);
     --fs-big: clamp(24px, 3.2vw + 8px, 44px);
     --fs-body-lead: clamp(15px, 0.9vw + 10px, 17px);
-    --fs-body: clamp(13.5px, 0.8vw + 9.5px, 15px);
-    --fs-body-sm: clamp(12.5px, 0.65vw + 9.5px, 13.5px);
+    --fs-body: clamp(13.5px, 0.8vw + 9.5px, 16px);
+    --fs-body-sm: clamp(12.5px, 0.65vw + 9.5px, 16.5px);
     --fs-meta: clamp(10.5px, 0.6vw + 8px, 14.5px);
     --fs-tag: clamp(10.5px, 0.55vw + 8px, 11.5px);
     --fs-btn: clamp(11.5px, 0.6vw + 8.5px, 12.5px);
@@ -36,7 +36,6 @@
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-medium: rgba(255, 255, 255, 0.16);
     --border-bright: rgba(255, 255, 255, 0.35);
-
     --text-heading: #f4f4f0;
     --text-body: #9c9c96;
     --text-body-bright: #d4d4ce;
@@ -837,7 +836,7 @@ section {
 .copy {
     color: var(--text-body);
     line-height: 1.78;
-    font-size: var(--fs-body);
+    /* font-size: var(--fs-body); */
 }
 
 .copy p+p {
