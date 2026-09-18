@@ -199,8 +199,8 @@
     appearance: none;
     position: absolute;
     z-index: 8;
-    width: 132px;
-    min-height: 132px;
+    width: 170px;
+    min-height: 170px;
     padding: 17px 8px 13px;
     display: flex;
     flex-direction: column;
@@ -227,25 +227,27 @@
 }
 
 .domain-node .node-icon {
-    width: 32px;
-    height: 32px;
+    width: 50px;
+    height: 50px;
     display: grid;
     place-items: center;
     border: 1px solid rgba(255, 255, 255, .18);
     border-radius: 50%;
-    font-size: 17px;
+    font-size: 30px;
     line-height: 1
 }
 
 .domain-node strong {
     font: 700 10px/1.1 var(--font-mono, monospace);
-    letter-spacing: .08em
+    letter-spacing: .08em;
+    font-size: small;
 }
 
 .domain-node small {
     font: 400 9px/1.15 var(--font-mono, monospace);
     color: rgba(255, 255, 255, .32);
-    white-space: nowrap
+    white-space: nowrap;
+    font-size: smaller;
 }
 
 .node-mechanical {
@@ -255,12 +257,12 @@
 }
 
 .node-electronic {
-    left: 8%;
+    left: 2%;
     top: 27%
 }
 
 .node-robotic {
-    right: 8%;
+    right: 2%;
     top: 27%
 }
 
@@ -276,7 +278,7 @@
 
 .node-mechanical:hover,
 .node-mechanical.active {
-    transform: translateX(-50%) scale(1.06)
+    transform: translateX(-50%) scale(1.06);
 }
 
 .domain-info-card {
@@ -285,7 +287,7 @@
     right: 28px;
     top: 50%;
     transform: translateY(-50%);
-    width: min(320px, 28vw);
+    width: min(350px, 28vw);
     min-height: 350px;
     padding: 28px;
     border: 1px solid rgba(255, 255, 255, .18);
@@ -301,7 +303,8 @@
     gap: 14px;
     font: 400 9px/1 var(--font-mono, monospace);
     letter-spacing: .12em;
-    color: rgba(255, 255, 255, .38)
+    color: rgba(255, 255, 255, .38);
+    font-size: 13px;
 }
 
 .domain-live {
@@ -310,8 +313,8 @@
 
 .domain-live i {
     display: inline-block;
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
     margin-right: 5px;
     border-radius: 50%;
     background: #fff;
@@ -336,20 +339,21 @@
     font: 400 9px/1 var(--font-mono, monospace);
     letter-spacing: .15em;
     color: rgba(255, 255, 255, .42);
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    font-size: 13px;
 }
 
 .domain-info-card h3 {
     margin: 0 0 13px;
-    font-size: clamp(28px, 3vw, 30px);
+    font-size: clamp(28px, 3vw, 32px);
     text-transform: uppercase;
-    letter-spacing: -.03em
+    letter-spacing: -.03em;
 }
 
 .domain-info-card p {
     margin: 0;
     color: rgba(255, 255, 255, .55);
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.7
 }
 
@@ -365,7 +369,8 @@
     border: 1px solid rgba(255, 255, 255, .1);
     font: 400 8px/1 var(--font-mono, monospace);
     letter-spacing: .1em;
-    color: rgba(255, 255, 255, .42)
+    color: rgba(255, 255, 255, .42);
+    font-size: small;
 }
 
 .domain-explore {
